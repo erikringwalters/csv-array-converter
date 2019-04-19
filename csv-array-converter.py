@@ -29,4 +29,13 @@ npDat3 = npDat3.reshape(1,4000)
 npDat3
 npDat3.tofile("np_rec_out_company.txt", sep=',', format='%s')
 
-data4 = pd.read_csv("C:/Users/Erik/file_copy.csv", header=0, parse_dates=[0], index_col=0)
+data4 = pd.read_csv("C:/Users/Erik/csv-array-converter/file_copy.csv", header=0, parse_dates=[0], index_col=0)
+data4
+npDat4 = data4.values
+npDat4
+media_user = data4.values
+npDat4[:,0]
+to_media = npDat4[:,0].reshape(1,788)
+from_media = npDat4[:,1].reshape(1,788)
+to_media
+from_media
