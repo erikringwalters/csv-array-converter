@@ -39,3 +39,7 @@ to_media = npDat4[:,0].reshape(1,788)
 from_media = npDat4[:,1].reshape(1,788)
 to_media
 from_media
+to_media.tofile("to_media.json", sep=',', format='%s')
+from_media.tofile("from_media.json", sep=',', format='%s')
+
+
