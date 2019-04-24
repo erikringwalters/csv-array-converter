@@ -42,4 +42,5 @@ from_media
 to_media.tofile("to_media.json", sep=',', format='%s')
 from_media.tofile("from_media.json", sep=',', format='%s')
 
+to_media[np.isnan(from_media)]
 
