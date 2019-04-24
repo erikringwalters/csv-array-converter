@@ -44,3 +44,13 @@ from_media.tofile("from_media.json", sep=',', format='%s')
 
 to_media[np.isnan(from_media)]
 
+d = pd.read_csv("C:/Users/Erik/csv-array-converter/all_dfs.csv", header=0, parse_dates=[0], index_col=0)
+dnonan = d[np.isfinite(d['to_removable_media'])]
+
+npD = dnonan.values
+#to_media = npD[:,0]
+user = npD[:,0] # user
+to_rem = npD[:,1] # to_rem
+from_rem = npD[:,2] # from_rem
+
+
