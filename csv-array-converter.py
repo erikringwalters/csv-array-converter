@@ -48,9 +48,26 @@ d = pd.read_csv("C:/Users/Erik/csv-array-converter/all_dfs.csv", header=0, parse
 dnonan = d[np.isfinite(d['to_removable_media'])]
 
 npD = dnonan.values
-#to_media = npD[:,0]
+#npD = npD.reshape(9, 785)
 user = npD[:,0] # user
 to_rem = npD[:,1] # to_rem
 from_rem = npD[:,2] # from_rem
+ins_threat = npD[:,8]
+
+user_true = user[ins_threat == True]
+to_rem_true = to_rem[ins_threat == True]
+from_rem_true = from_rem[ins_threat == True]
+
+user_false = user[ins_threat == False]
+to_rem_false = to_rem[ins_threat == False]
+from_rem_false = from_rem[ins_threat == False]
+
+user_true.tofile("user_true.txt", sep=',', format='%s')
+to_rem_true.tofile("to_rem_true.txt", sep=',', format='%s')
+from_rem_true.tofile("from_rem_true.txt", sep=',', format='%s')
+
+user_false.tofile("user_false.txt", sep=',', format='%s')
+to_rem_false.tofile("to_rem_false.txt", sep=',', format='%s')
+from_rem_false.tofile("from_rem_false.txt", sep=',', format='%s')
 
 
