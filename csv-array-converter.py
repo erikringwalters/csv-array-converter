@@ -95,3 +95,28 @@ sent_out_true.tofile("sent_out_true.txt", sep=',', format='%s')
 user_false.tofile("user_false.txt", sep=',', format='%s')
 rec_out_false.tofile("rec_out_false.txt", sep=',', format='%s')
 sent_out_false.tofile("sent_out_false.txt", sep=',', format='%s')
+
+npd3 = d2.values
+
+user = npd3[:,0]
+logoff = npd3[:,6]
+logon = npd3[:,7]
+ins_threat = npd3[:,8]
+
+user_true = user[ins_threat == True]
+logoff_true = logoff[ins_threat == True]
+logon_true = logon[ins_threat == True]
+
+
+user_false = user[ins_threat == False]
+logoff_false = logoff[ins_threat == False]
+logon_false = logon[ins_threat == False]
+
+
+user_true.tofile("user_true.json", sep='","', format='%s')
+logoff_true.tofile("logoff_true.json", sep=',', format='%s')
+logon_true.tofile("logon_true.json", sep=',', format='%s')
+
+user_false.tofile("user_false.json", sep='","', format='%s')
+logoff_false.tofile("logoff_false.json", sep=',', format='%s')
+logon_false.tofile("logon_false.json", sep=',', format='%s')
