@@ -70,4 +70,28 @@ user_false.tofile("user_false.txt", sep=',', format='%s')
 to_rem_false.tofile("to_rem_false.txt", sep=',', format='%s')
 from_rem_false.tofile("from_rem_false.txt", sep=',', format='%s')
 
+#-----rec_out sent_out --------
+d2 = pd.read_csv("C:/Users/Erik/Downloads/all_dfs.csv", header=0, parse_dates=[0], index_col=0)
 
+npD2 = d2[d2['rec_out'] > 0].values
+
+user = npD2[:,0]
+rec_out = npD2[:,1]
+sent_out = npD2[:,2]
+ins_threat = npD2[:,8]
+
+user_true = user[ins_threat == True]
+rec_out_true = rec_out[ins_threat == True]
+sent_out_true = sent_out[ins_threat == True]
+
+user_false = user[ins_threat == False]
+rec_out_false = rec_out[ins_threat == False]
+sent_out_false = sent_out[ins_threat == False]
+
+user_true.tofile("user_true.txt", sep=',', format='%s')
+rec_out_true.tofile("rec_out_true.txt", sep=',', format='%s')
+sent_out_true.tofile("sent_out_true.txt", sep=',', format='%s')
+
+user_false.tofile("user_false.txt", sep=',', format='%s')
+rec_out_false.tofile("rec_out_false.txt", sep=',', format='%s')
+sent_out_false.tofile("sent_out_false.txt", sep=',', format='%s')
