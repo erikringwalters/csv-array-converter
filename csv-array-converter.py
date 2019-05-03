@@ -120,3 +120,5 @@ logon_true.tofile("logon_true.json", sep=',', format='%s')
 user_false.tofile("user_false.json", sep='","', format='%s')
 logoff_false.tofile("logoff_false.json", sep=',', format='%s')
 logon_false.tofile("logon_false.json", sep=',', format='%s')
+
+d3 = pd.read_csv("C:/Users/Erik/Downloads/scaled_knn_output.csv", header=0, parse_dates=[0], index_col=0)
