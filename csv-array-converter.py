@@ -122,3 +122,40 @@ logoff_false.tofile("logoff_false.json", sep=',', format='%s')
 logon_false.tofile("logon_false.json", sep=',', format='%s')
 
 d3 = pd.read_csv("C:/Users/Erik/Downloads/scaled_knn_output.csv", header=0, parse_dates=[0], index_col=0)
+
+npknn = d3.values
+
+indecies = d3.index
+user = npknn[:,0]
+ins_threat = npknn[:,1]
+rem_media_knn = npknn[:,2]
+device_plugin_knn = npknn[:,3]
+user_logon_knn = npknn[:,4]
+
+i_true = indecies[ins_threat == True]
+u_true = user[ins_threat == True]
+r_true = rem_media_knn[ins_threat == True]
+d_true = device_plugin_knn[ins_threat == True]
+l_true = user_logon_knn[ins_threat == True]
+
+i_false = indecies[ins_threat == False]
+u_false = user[ins_threat == False]
+r_false = rem_media_knn[ins_threat == False]
+d_false = device_plugin_knn[ins_threat == False]
+l_false = user_logon_knn[ins_threat == False]
+
+i_true.tofile("index_true_knn.json", sep=', ', format='%s')
+u_true.tofile("user_true_knn.json", sep='","', format='%s')
+r_true.tofile("removable_media_true_knn.json", sep='","', format='%s')
+d_true.tofile("device_pulgin_count_true_knn.json", sep='","', format='%s')
+l_true.tofile("user_logon_true_knn.json", sep='","', format='%s')
+
+i_false.tofile("index_false_knn.json", sep=', ', format='%s')
+u_false.tofile("user_false_knn.json", sep='","', format='%s')
+r_false.tofile("removable_media_false_knn.json", sep='","', format='%s')
+d_false.tofile("device_pulgin_count_false_knn.json", sep='","', format='%s')
+l_false.tofile("user_logon_false_knn.json", sep='","', format='%s')
+
+
+user_false.tofile("user_false_knn.json", sep='","', format='%s')
+
